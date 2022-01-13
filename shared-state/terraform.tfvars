@@ -1,2 +1,2 @@
-aws_region           = "us-east-1"
+aws_region           = "us-east-2"
 clusters_name_prefix = "spot-actions-cluster"

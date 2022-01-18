@@ -15,6 +15,7 @@ terraform {
   required_version = "~> 1.1.0"
 }
 
-provider "aws" {
-  region  = var.aws_region
+data "aws_ssm_parameter" "workers_ami_id" {
+  name            = "/aws/service/eks/optimized-ami/1.15/amazon-linux-2/recommended/image_id"
+  with_decryption = false
 }

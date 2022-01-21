@@ -13,7 +13,7 @@ resource "aws_security_group" "workers" {
   tags = merge(
     var.common_tags,
     {
-      Name                                             = "${var.cluster_full_name}-cluster-sg"
+      Name                                             = "${var.cluster_full_name}-workers-sg"
       "kubernetes.io/cluster/${var.cluster_full_name}" = "owned"
     },
   )

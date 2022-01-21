@@ -10,6 +10,12 @@ module "workers" {
   workers_instance_type  = var.workers_instance_type
   workers_number_max     = var.workers_number_max
   workers_number_min     = var.workers_number_min
+  workers_desired_size   = var.workers_desired_size
   workers_storage_size   = var.workers_storage_size
   common_tags            = var.common_tags
+  node_group_name        = var.node_group_name
+  capacity_type          = var.capacity_type
+  instance_types         = var.instance_types
+  ami_type               = var.ami_type
+
 }

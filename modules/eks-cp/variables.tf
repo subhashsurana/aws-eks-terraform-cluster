@@ -21,3 +21,7 @@ variable "vpc_id" {
 variable "common_tags" {
   type = map(string)
 }
+
+variable "clusters_name_prefix" {
+  type = string
+}

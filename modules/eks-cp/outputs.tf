@@ -1,5 +1,5 @@
 output "security_group" {
-  value = aws_security_group.eks_cluster_sg.id
+  value = aws_security_group.eks_security_sg.id
 }
 
 output "ca" {

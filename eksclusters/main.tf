@@ -9,9 +9,14 @@ module "ekscluster" {
   workers_ami_id        = data.aws_ssm_parameter.workers_ami_id.value
   workers_number_min    = var.workers_number_min
   workers_number_max    = var.workers_number_max
+  workers_desired_size  = var.workers_desired_size
   workers_storage_size  = var.workers_storage_size
   common_tags           = local.common_tags
   aws_region            = var.aws_region
+  node_group_name       = var.node_group_name
+  capacity_type         = var.capacity_type
+  instance_types        = var.instance_types
+  ami_type              = var.ami_type
 }
 
 locals {

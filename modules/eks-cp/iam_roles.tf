@@ -1,6 +1,6 @@
 resource "aws_iam_role" "eks_cluster_role" {
-    name = "${var.cluster_full_name}-cluster-role"
-    assume_role_policy = <<POLICY
+  name               = "${var.cluster_full_name}-cluster-role"
+  assume_role_policy = <<POLICY
     { "Version": "2012-10-17",
   "Statement": [
     {
@@ -14,11 +14,11 @@ resource "aws_iam_role" "eks_cluster_role" {
  ]
 }
 POLICY
-tags = var.common_tags  
+  tags               = var.common_tags
 }
 
 data "aws_iam_policy" "AmazonEKSClusterPolicy" {
-    arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+  arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
 data "aws_iam_policy" "AmazonEKSServicePolicy" {
@@ -27,7 +27,7 @@ data "aws_iam_policy" "AmazonEKSServicePolicy" {
 
 resource "aws_iam_role_policy_attachment" "eks_clusterrole_policy_attachment" {
   policy_arn = data.aws_iam_policy.AmazonEKSClusterPolicy.arn
-  role = aws_iam_role.eks_cluster_role.name
+  role       = aws_iam_role.eks_cluster_role.name
   depends_on = [data.aws_iam_policy.AmazonEKSClusterPolicy]
 }
 

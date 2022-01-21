@@ -19,4 +19,3 @@ USERDATA
 
   workers_userdata = "${local.userdata} --kubelet-extra-args \"${local.kubelet_extra_args}\"  \"${var.cluster_full_name}\""
 }
-

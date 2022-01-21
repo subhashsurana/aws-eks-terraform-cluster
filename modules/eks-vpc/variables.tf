@@ -1,5 +1,5 @@
 variable "eks_vpc_block" {
-    type = string
+  type = string
 }
 
 variable "eks_private_subnets_prefix_list" {
@@ -11,9 +11,9 @@ variable "eks_public_subnets_prefix_list" {
 }
 
 variable "clusters_name_prefix" {
-    type = string
+  type = string
 }
 
 variable "common_tags" {
-    type = map(string)
+  type = map(string)
 }

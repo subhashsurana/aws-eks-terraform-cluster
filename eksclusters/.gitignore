@@ -1,6 +1,14 @@
-*.tfstate
-*.tfstate*.backup
-.terraform/*
-.terraform.*
-local.auto.tfvars
-*DS_Store*
+# Local terraform directories
+
+**/.terraform/*
+**/.terraform.*
+
+# State files
+**.tfstate
+**.tfstate.*
+
+#Crash log files
+*.log
+
+#Sensitive data
+*.tfvars

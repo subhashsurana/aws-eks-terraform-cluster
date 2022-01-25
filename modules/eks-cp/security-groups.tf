@@ -1,4 +1,4 @@
-resource "aws_security_group" "eks_security_cluster" {
+resource "aws_security_group" "eks_cluster_sg" {
   name        = var.cluster_full_name
   description = "EKS cluster Security group"
   vpc_id      = var.vpc_id

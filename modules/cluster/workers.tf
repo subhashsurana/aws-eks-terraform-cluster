@@ -17,5 +17,5 @@ module "workers" {
   capacity_type          = var.capacity_type
   instance_types         = var.instance_types
   ami_type               = var.ami_type
-
+  disk_size              = var.disk_size
 }

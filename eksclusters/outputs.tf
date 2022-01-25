@@ -3,7 +3,7 @@ output "aws_region" {
 }
 
 output "cluster_full_name" {
-  value = "${var.clusters_name_prefix}-${terraform.workspace}"
+  value = "${var.clusters_name_prefix}-${element(split("-", terraform.workspace), 0)}"
 }
 
 output "cluster_version" {

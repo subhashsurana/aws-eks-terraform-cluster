@@ -75,3 +75,8 @@ variable "workers_desired_size" {
   description = "Desired number of worker nodes in a given subnet"
   type        = number
 }
+
+variable "disk_size" {
+  description = "Disk size in GB for worker nodes. Defaults to 20."
+  type = number
+}

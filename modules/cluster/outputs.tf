@@ -22,8 +22,8 @@ output "worker_iam_role_arn" {
   value = module.workers.iam_role_arn
 }
 
-output "worker_asg_names" {
-  value = module.workers.asg_names
+output "worker_node_group_name" {
+  value = module.workers.node_group_name
 }
 
 output "worker_security_group" {

@@ -23,6 +23,7 @@ resource "aws_subnet" "eks_public_subnets" {
   cidr_block        = element(var.eks_public_subnets_prefix_list, count.index)
   vpc_id            = aws_vpc.eks_vpc.id
   availability_zone = data.aws_availability_zones.availability_zones.names[count.index]
+  map_public_ip_on_launch = true
 
   tags = merge(
     var.common_tags,

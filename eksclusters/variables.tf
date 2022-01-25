@@ -63,3 +63,8 @@ variable "capacity_type" {
   description = "Capacity type to be either as 'ON-DEMAND' or 'SPOT' "
 
 }
+
+variable "disk_size" {
+  description = "Disk size in GB for worker nodes. Defaults to 20."
+  type = number
+}

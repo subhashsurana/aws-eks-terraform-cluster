@@ -33,7 +33,7 @@
 # }
 
 resource "aws_launch_template" "workers" {
-  name_prefix            = format("%s%s", "${var.cluster_full_name}-${var.workers_instance_type}", "-")
+  name_prefix            = format("%s", "${var.cluster_full_name}-${var.workers_instance_type}")
   instance_type          = var.workers_instance_type
   image_id               = var.workers_ami_id
   vpc_security_group_ids = [aws_security_group.workers.id]

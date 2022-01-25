@@ -1,5 +1,5 @@
-output "asg_names" {
-  value = aws_autoscaling_group.workers.name
+output "node_group_name" {
+  value = aws_eks_node_group.private-node-group.node_group_name
 }
 
 output "security_group_id" {

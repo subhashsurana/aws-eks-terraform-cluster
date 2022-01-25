@@ -5,7 +5,7 @@ resource "aws_eks_cluster" "eks_cluster" {
 
 
   vpc_config {
-    security_group_ids = [aws_security_group.eks_security_sg.id]
+    security_group_ids = [aws_security_group.eks_cluster_sg.id]
     subnet_ids         = concat(var.private_subnets, var.public_subnets)
   }
 

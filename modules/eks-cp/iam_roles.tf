@@ -1,7 +1,7 @@
 resource "aws_iam_role" "eks_cluster_role" {
   name               = "${var.cluster_full_name}-cluster-role"
-  assume_role_policy = <<POLICY
-    { "Version": "2012-10-17",
+  assume_role_policy = jsonencode(
+    {
   "Statement": [
     {
       "Effect": "Allow",
@@ -10,10 +10,9 @@ resource "aws_iam_role" "eks_cluster_role" {
       },
       "Action": "sts:AssumeRole"
     }
- 
- ]
-}
-POLICY
+ ] 
+ "Version": "2012-10-17"
+})
   tags               = var.common_tags
 }
 

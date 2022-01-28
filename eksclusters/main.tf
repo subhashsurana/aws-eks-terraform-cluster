@@ -1,8 +1,8 @@
 module "ekscluster" {
   source                = "../modules/cluster"
-  vpc_id                = var.vpc_id
-  public_subnets        = var.public_subnet_ids
-  private_subnets       = var.private_subnet_ids
+  # vpc_id                = var.vpc_id
+  # public_subnets        = var.public_subnet_ids
+  # private_subnets       = var.private_subnet_ids
   clusters_name_prefix = var.clusters_name_prefix
   cluster_full_name     = "${var.clusters_name_prefix}-${element(split("-", terraform.workspace), 0)}"
   cluster_version       = var.cluster_version
@@ -16,8 +16,8 @@ module "ekscluster" {
   aws_region            = var.aws_region
   node_group_name       = var.node_group_name
   capacity_type         = var.capacity_type
-  instance_types        = var.instance_types
-  ami_type              = var.ami_type
+# instance_types        = var.instance_types
+# ami_type              = var.ami_type
   disk_size             = var.disk_size
 }
 

@@ -1,47 +1,10 @@
-# resource "aws_autoscaling_group" "workers" {
-#   name                = "${var.cluster_full_name}-workers-asg-${var.workers_instance_type}"
-#   max_size            = var.workers_number_max
-#   min_size            = var.workers_number_min
-#   vpc_zone_identifier = var.private_subnet_ids
-
-#   launch_template {
-#     id      = aws_launch_template.workers.id
-#     version = "$Latest"
-#   }
-
-#   lifecycle {
-#     create_before_destroy = true
-#   }
-
-#   tag {
-#     key                 = "Name"
-#     value               = "${var.cluster_full_name}-workers-${var.workers_instance_type}"
-#     propagate_at_launch = true
-#   }
-
-#   tag {
-#     key                 = "kubernetes.io/cluster/${var.cluster_full_name}"
-#     value               = "owned"
-#     propagate_at_launch = true
-#   }
-
-#   tag {
-#     key                 = "Managedby"
-#     value               = "terraform"
-#     propagate_at_launch = true
-#   }
-# }
-
 resource "aws_launch_template" "workers" {
   name_prefix            = format("%s", "${var.cluster_full_name}-${var.workers_instance_type}")
+# key_name               = "eks-ci-cluster"
   instance_type          = var.workers_instance_type
   image_id               = var.workers_ami_id
   vpc_security_group_ids = [aws_security_group.workers.id]
-  user_data              = base64encode(local.workers_userdata)
-
-  iam_instance_profile {
-    name = aws_iam_instance_profile.workers.name
-  }
+  user_data              = base64encode(local.eks_node_private_userdata)
 
   block_device_mappings {
     device_name = "/dev/xvda"
@@ -62,7 +25,7 @@ resource "aws_launch_template" "workers" {
   }
 
   tag_specifications {
-    resource_type = "volume"
+    resource_type = "instance"
     tags          = var.common_tags
   }
 }

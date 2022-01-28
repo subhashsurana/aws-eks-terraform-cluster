@@ -1,7 +1,8 @@
 resource "aws_security_group" "workers" {
   name        = "${var.cluster_full_name}-workers"
   description = "Security group for all nodes in the ${var.cluster_full_name} cluster"
-  vpc_id      = var.vpc_id
+# vpc_id      = var.vpc_id
+  vpc_id = data.terraform_remote_state.vpc_state.outputs.vpc_id
 
   egress {
     from_port   = 0

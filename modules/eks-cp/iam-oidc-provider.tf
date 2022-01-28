@@ -67,6 +67,3 @@ resource "aws_iam_role_policy_attachment" "s3_oidc_policy_attach" {
   policy_arn = aws_iam_policy.s3-oidc-policy.arn
 }
 
-output "s3_oidc_iam_arn" {
-  value = aws_iam_role.iam_oidc.arn
-}

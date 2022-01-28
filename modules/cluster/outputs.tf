@@ -1,13 +1,21 @@
 output "cluster_full_name" {
-  value = var.cluster_full_name
+  value = module.eks.cluster_name
 }
 
-output "cluster_version" {
-  value = var.cluster_version
+output "cluster_cert_authority" {
+  value = module.eks.cert_authority
 }
 
 output "cluster_api" {
-  value = module.eks.endpoint
+  value = module.eks.cluster_endpoint
+}
+
+output "cluster_open_id_connect-issuer" {
+  value = module.eks.identity_oidc_issuer
+}
+
+output "open_id_connect_S3_iam_arn" {
+  value = module.eks.s3_oidc_iam_arn
 }
 
 output "cluster_tag" {
@@ -30,9 +38,9 @@ output "worker_security_group" {
   value = module.workers.security_group_id
 }
 
-output "workers_instance_profile" {
-  value = module.workers.instance_profile
-}
+# output "workers_instance_profile" {
+#   value = module.workers.instance_profile
+# }
 
 output "workers_userdata" {
   value = module.workers.userdata

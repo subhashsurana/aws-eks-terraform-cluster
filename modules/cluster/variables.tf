@@ -1,14 +1,14 @@
-variable "vpc_id" {
-  type = string
-}
+# variable "vpc_id" {
+#   type = string
+# }
 
-variable "private_subnets" {
-  type = list(string)
-}
+# variable "private_subnets" {
+#   type = list(string)
+# }
 
-variable "public_subnets" {
-  type = list(string)
-}
+# variable "public_subnets" {
+#   type = list(string)
+# }
 
 variable "cluster_full_name" {
   type = string
@@ -55,15 +55,15 @@ variable "node_group_name" {
   type        = string
 }
 
-variable "ami_type" {
-  description = "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to AL2_x86_64. Valid values: AL2_x86_64, AL2_x86_64_GPU."
-  type        = string
-}
+# variable "ami_type" {
+#   description = "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to AL2_x86_64. Valid values: AL2_x86_64, AL2_x86_64_GPU."
+#   type        = string
+# }
 
-variable "instance_types" {
-  type        = list(string)
-  description = "Set of instance types associated with the EKS Node Group."
-}
+# variable "instance_types" {
+#   type        = list(string)
+#   description = "Set of instance types associated with the EKS Node Group."
+# }
 
 variable "capacity_type" {
   type        = string

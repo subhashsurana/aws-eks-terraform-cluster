@@ -18,12 +18,12 @@ output "tag" {
   value = "kubernetes.io/cluster/${var.cluster_full_name}"
 }
 
-output "instance_profile" {
-  value = aws_iam_instance_profile.workers.arn
-}
+# output "instance_profile" {
+#   value = aws_iam_instance_profile.workers.arn
+# }
 
 output "userdata" {
-  value = local.workers_userdata
+  value = local.eks_node_private_userdata
 }
 
 output "authconfig" {

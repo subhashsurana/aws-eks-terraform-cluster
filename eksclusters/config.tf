@@ -20,6 +20,6 @@ provider "aws" {
 }
 
 data "aws_ssm_parameter" "workers_ami_id" {
-  name            = "/aws/service/eks/optimized-ami/1.21/amazon-linux-2/recommended/image_id"
+  name            = format("/aws/service/eks/optimized-ami/%s/amazon-linux-2/recommended/image_id",var.cluster_version)
   with_decryption = false
 }

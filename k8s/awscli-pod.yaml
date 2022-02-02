@@ -1,0 +1,25 @@
+# https://kubernetes.io/docs/concepts/workloads/pods/
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "aws-cli"
+  namespace: default
+  labels:
+    app: "awscli-pod"
+spec:
+  serviceAccountName: aws-node
+  containers:
+  - name: aws-cli
+    image: amazon/aws-cli
+    command: ["/bin/bash", "-c","--"]
+    args: ["while true; do sleep 30; done;"]
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+  tolerations:
+    - operator: Exists
+      effect: NoExecute

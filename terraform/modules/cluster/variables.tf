@@ -55,11 +55,6 @@ variable "node_group_name" {
   type        = string
 }
 
-# variable "ami_type" {
-#   description = "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to AL2_x86_64. Valid values: AL2_x86_64, AL2_x86_64_GPU."
-#   type        = string
-# }
-
 variable "instance_types" {
   type        = list(string)
   description = "Set of instance types associated with the EKS Node Group."
@@ -76,7 +71,12 @@ variable "workers_desired_size" {
   type        = number
 }
 
-variable "disk_size" {
-  description = "Disk size in GB for worker nodes. Defaults to 20."
-  type = number
+# variable "disk_size" {
+#   description = "Disk size in GB for worker nodes. Defaults to 20."
+#   type = number
+# }
+
+variable "generated_key_name" {
+  description = "SSH key pair to be generated"
+  type        = string
 }

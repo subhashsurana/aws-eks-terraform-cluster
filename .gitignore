@@ -12,3 +12,4 @@
 
 #Sensitive data
 #*.tfvars
+**/*.pem

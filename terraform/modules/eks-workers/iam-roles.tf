@@ -36,6 +36,11 @@ resource "aws_iam_role_policy_attachment" "CloudWatchAgentServerPolicy" {
   role       = aws_iam_role.workers.name
 }
 
+resource "aws_iam_role_policy_attachment" "AmazonSSMManagedInstanceCore" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+  role       = aws_iam_role.workers.name
+}
+
 # resource "aws_iam_instance_profile" "workers" {
 #   name = "${var.cluster_full_name}-workers"
 #   role = aws_iam_role.workers.name

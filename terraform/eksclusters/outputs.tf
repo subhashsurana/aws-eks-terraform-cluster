@@ -22,9 +22,9 @@ output "worker_iam_role_arn" {
   value = module.ekscluster.worker_iam_role_arn
 }
 
-output "authconfig" {
-  value = module.ekscluster.authconfig
-}
+# output "authconfig" {
+#   value = module.ekscluster.authconfig
+# }
 
 output "cluster_cert_authority" {
   value = module.ekscluster.cluster_cert_authority

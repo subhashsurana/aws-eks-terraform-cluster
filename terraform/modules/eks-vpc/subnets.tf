@@ -19,10 +19,10 @@ resource "aws_subnet" "eks_private_subnets" {
 }
 
 resource "aws_subnet" "eks_public_subnets" {
-  count             = length(var.eks_public_subnets_prefix_list)
-  cidr_block        = element(var.eks_public_subnets_prefix_list, count.index)
-  vpc_id            = aws_vpc.eks_vpc.id
-  availability_zone = data.aws_availability_zones.availability_zones.names[count.index]
+  count                   = length(var.eks_public_subnets_prefix_list)
+  cidr_block              = element(var.eks_public_subnets_prefix_list, count.index)
+  vpc_id                  = aws_vpc.eks_vpc.id
+  availability_zone       = data.aws_availability_zones.availability_zones.names[count.index]
   map_public_ip_on_launch = true
 
   tags = merge(

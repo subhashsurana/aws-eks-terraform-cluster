@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "cluster_assume_role_policy" {
     actions = ["sts:AssumeRoleWithWebIdentity"]
     effect  = "Allow"
 
-# Limit the scope so that only our desired service account can assume this role
+    # Limit the scope so that only our desired service account can assume this role
     condition {
       test     = "StringEquals"
       variable = "${replace(aws_iam_openid_connect_provider.oidc_provider.url, "https://", "")}:sub"

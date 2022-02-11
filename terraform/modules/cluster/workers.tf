@@ -1,7 +1,5 @@
 module "workers" {
   source                 = "../eks-workers"
-# vpc_id                 = var.vpc_id
-# private_subnet_ids     = var.private_subnets
   cluster_full_name      = var.cluster_full_name
   cluster_endpoint       = module.eks.cluster_endpoint
   cluster_cert_authority = module.eks.cert_authority
@@ -16,6 +14,6 @@ module "workers" {
   node_group_name        = var.node_group_name
   capacity_type          = var.capacity_type
   instance_types         = var.instance_types
-# ami_type               = var.ami_type
-  disk_size              = var.disk_size
+  # disk_size              = var.disk_size
+  generated_key_name = var.generated_key_name
 } 

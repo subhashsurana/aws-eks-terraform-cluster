@@ -4,7 +4,7 @@ resource "aws_eks_cluster" "eks_cluster" {
   version  = var.cluster_version
   role_arn = aws_iam_role.eks_cluster_role.arn
 
-    enabled_cluster_log_types = [
+  enabled_cluster_log_types = [
     "api",
     "audit",
     "authenticator",
@@ -13,11 +13,11 @@ resource "aws_eks_cluster" "eks_cluster" {
   ]
 
   vpc_config {
-    security_group_ids = [aws_security_group.eks_cluster_sg.id]
-     subnet_ids       = flatten([data.terraform_remote_state.vpc_state.outputs.private_subnet_ids])
-     endpoint_private_access = true
-     endpoint_public_access  = true
-     public_access_cidrs = [
+    security_group_ids      = [aws_security_group.eks_cluster_sg.id]
+    subnet_ids              = flatten([data.terraform_remote_state.vpc_state.outputs.private_subnet_ids])
+    endpoint_private_access = true
+    endpoint_public_access  = true
+    public_access_cidrs = [
       "0.0.0.0/0",
     ]
 

@@ -20,14 +20,14 @@ resource "aws_eks_node_group" "private-node-group" {
   }
 
   labels = {
-    "role" = "general"
-     "eks/cluster-name"   = var.cluster_full_name
-     "eks/nodegroup-name" = var.node_group_name
+    "role"               = "general"
+    "eks/cluster-name"   = var.cluster_full_name
+    "eks/nodegroup-name" = var.node_group_name
   }
 
   # taint {
-  #   key    = "team"
-  #   value  = "devops"
+  #   key    = "monitoring"
+  #   value  = "app"
   #   effect = "NO_SCHEDULE"
   # }
 
@@ -41,13 +41,13 @@ resource "aws_eks_node_group" "private-node-group" {
   }
 
   tags = {
-    Name = var.node_group_name
-    "eks/cluster-name"                = var.cluster_full_name
-    "eks/nodegroup-name"              = var.node_group_name
-    "eks/nodegroup-type"              = "managed"
-    "eksnet" = "net-main"
+    Name                 = var.node_group_name
+    "eks/cluster-name"   = var.cluster_full_name
+    "eks/nodegroup-name" = var.node_group_name
+    "eks/nodegroup-type" = "managed"
+    "eksnet"             = "net-main"
   }
-  
+
   timeouts {}
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.

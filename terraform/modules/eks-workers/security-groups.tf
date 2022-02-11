@@ -1,7 +1,7 @@
 resource "aws_security_group" "workers" {
   name        = "${var.cluster_full_name}-workers"
   description = "Security group for all nodes in the ${var.cluster_full_name} cluster"
-# vpc_id      = var.vpc_id
+  # vpc_id      = var.vpc_id
   vpc_id = data.terraform_remote_state.vpc_state.outputs.vpc_id
 
   egress {
@@ -98,4 +98,14 @@ resource "aws_security_group_rule" "masters_workers_egress" {
   security_group_id        = var.cluster_security_group
   source_security_group_id = aws_security_group.workers.id
   type                     = "egress"
+}
+
+resource "aws_security_group_rule" "workers_ssh_ingress" {
+  description              = "SSH Rule to allow the worker nodes to be reached via ssh connection"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  cidr_blocks              = ["0.0.0.0/0"]
+  type                     = "ingress"
+  security_group_id        = var.cluster_security_group
 }

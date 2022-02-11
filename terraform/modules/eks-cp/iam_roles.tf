@@ -1,19 +1,19 @@
 resource "aws_iam_role" "eks_cluster_role" {
-  name               = "${var.cluster_full_name}-cluster-role"
+  name = "${var.cluster_full_name}-cluster-role"
   assume_role_policy = jsonencode(
     {
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "eks.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
- ] 
- "Version": "2012-10-17"
-})
-  tags               = var.common_tags
+      "Statement" : [
+        {
+          "Effect" : "Allow",
+          "Principal" : {
+            "Service" : "eks.amazonaws.com"
+          },
+          "Action" : "sts:AssumeRole"
+        }
+      ]
+      "Version" : "2012-10-17"
+  })
+  tags = var.common_tags
 }
 
 data "aws_iam_policy" "AmazonEKSClusterPolicy" {

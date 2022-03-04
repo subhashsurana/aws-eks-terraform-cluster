@@ -34,5 +34,5 @@ If you want to use S3 as a backend in Terraform, first, you must create an S3 bu
 
 ### EKS Cluster Creation - Infrastructure 
 
-#### Please check the [docs/EKS-Cluster](https://github.com/Dealermade/aws-terraform-eks-cluster/blob/main/docs/Tools-setup.md) Readme for the detailed steps required to provision & Tear down the cluster Terraform
+#### Please check the [docs/EKS-Cluster](https://github.com/Dealermade/aws-terraform-eks-cluster/blob/main/docs/EKS-Cluster.md) Readme for the detailed steps required to provision & Tear down the cluster Terraform
 

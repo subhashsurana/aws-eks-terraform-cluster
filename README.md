@@ -26,7 +26,6 @@ If you want to use S3 as a backend in Terraform, first, you must create an S3 bu
 ```Warning: It is highly recommended that you enable Bucket Versioning on the S3 bucket to allow for state recovery in the case of accidental deletions and human error.```
 
 
-
 ## Tools Setup
 
 #### Please check the [docs](https://github.com/Dealermade/aws-terraform-eks-cluster/blob/main/docs/Tools-setup.md) directory for setting up the required software and configuration required for setting up EKS Cluster in AWS Using Terraform.

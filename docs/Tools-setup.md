@@ -2,7 +2,7 @@
 - AWS CLI V2
 - Terraform
 
-For Installing & configuring AWS CLI please check the docs/AWS-setup
+For Installing & configuring AWS CLI please check the [docs/AWS-setup](https://github.com/Dealermade/aws-terraform-eks-cluster/blob/main/docs/AWS-setup.md)
 
 ### Terraform Installation
 

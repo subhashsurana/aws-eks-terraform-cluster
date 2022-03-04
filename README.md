@@ -27,68 +27,13 @@ If you want to use S3 as a backend in Terraform, first, you must create an S3 bu
 
 
 
-# Provision the infrastructure
+## Tools Setup
 
-## Create terraform shared state
+#### Please check the [docs](https://github.com/Dealermade/aws-terraform-eks-cluster/blob/main/docs/Tools-setup.md) directory for setting up the required software and configuration required for setting up EKS Cluster in AWS Using Terraform.
 
-```
-cd shared-state
-terraform init
-terraform apply
-```
+---
 
-## Create cluster VPC and network
+### EKS Cluster Creation - Infrastructure 
 
-```
-cd ekscluster-vpc
-terraform workspace new test
-terraform init 
-terraform apply
-```
-
-## Create cluster resources
-
-```
-
-
-cd eksclusters
-terraform workspace new test-cluster                
-terraform init 
-terraform apply
-```
-
-## Verify the cluster
-
-```
-kubectl get nodes
-kubectl get namespaces
-kubectl get pods --all-namespaces
-```
-
-# Destroy the infrastructure
-
-## Destroy cluster resources
-
-```
-cd eksclusters
-terraform workspace select test-cluster             
-terraform init 
-terraform destroy
-```
-
-## Destroy cluster VPC and network
-
-```
-cd ekscluster-vpc
-terraform workspace select test
-terraform init 
-terraform destroy
-```
-
-# Destroy terraform shared state
-```
-cd shared-state 
-terraform init 
-terraform destroy
-```
+#### Please check the [docs/EKS-Cluster](https://github.com/Dealermade/aws-terraform-eks-cluster/blob/main/docs/Tools-setup.md) Readme for the detailed steps required to provision & Tear down the cluster Terraform
 

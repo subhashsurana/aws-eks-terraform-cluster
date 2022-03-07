@@ -5,7 +5,7 @@
 ```
 cd shared-state
 terraform init
-terraform apply
+terraform apply -var-file=tfvariables/ci-actions.tfvars
 ```
 
 ## Create cluster VPC and network
@@ -13,8 +13,8 @@ terraform apply
 ```
 cd ekscluster-vpc
 terraform workspace new test
-terraform init 
-terraform apply
+terraform init -backend-config=backends/ci-actions.config.s3.backend -reconfigure
+terraform apply -var-file=tfvariables/ci-actions.tfvars
 ```
 
 ## Create cluster resources
@@ -24,8 +24,8 @@ terraform apply
 
 cd eksclusters
 terraform workspace new test-cluster                
-terraform init 
-terraform apply
+terraform init -backend-config=backends/ci-actions.config.s3.backend -reconfigure
+terraform apply -var-file=tfvariables/ci-actions.tfvars
 ```
 
 ## Verify the cluster

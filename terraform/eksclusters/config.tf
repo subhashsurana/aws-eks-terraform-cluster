@@ -1,10 +1,5 @@
 terraform {
   backend "s3" {
-    bucket         = "ci-actions-cluster-terraform-state"
-    key            = "ci-actions-cluster.tfstate"
-    region         = "us-east-2"
-    dynamodb_table = "ci-actions-cluster-terraform-state-lock-dynamodb"
-    encrypt        = "true"
   }
   required_providers {
     aws = {
